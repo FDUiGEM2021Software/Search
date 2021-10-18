@@ -20,18 +20,19 @@
 // ModifyFile();
 
 function Search() {
-    $.ajax({
-        type: "get",
-        // url: "Trial.py",
-        // url: "Trial.py\hello",
-        url: "\hello",
-        data: { "info": "123" },
-        datatype: "json",
-        success: function(response) {
-            var output = response;
-            alert(output);
-        }
-    })
+    // $.ajax({
+    //     type: "get",
+    //     // url: "Trial.py",
+    //     // url: "Trial.py\hello",
+    //     // url: '/hello',
+    //     // data: { a: 1 },
+    //     data: {},
+    //     datatype: "json",
+    //     success: function(response) {
+    //         var output = response;
+    //         alert(output);
+    //     }
+    // })
 }
 
 Search()
