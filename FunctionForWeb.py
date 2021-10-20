@@ -7,8 +7,19 @@ import global_vary
 
 
 #return格式：list[dic{onename:str,path:str,related_parts:lst[],signi:lst[]},dic{}]
+<<<<<<< Updated upstream
 
 def get_Json_searching_data(target_part):
+=======
+@app.route('/search')
+@cross_origin()
+def get_Json_searching_data():
+    temp = request.args.get('name', 0, type=String)
+    try: 
+        target_part = temp.name
+    except:
+        target_part = ""
+>>>>>>> Stashed changes
     global_vary._init()
     wb = load_workbook('whole_collection_processed.xlsx')
     ws= wb['Sheet1']
@@ -31,8 +42,15 @@ def get_Json_searching_data(target_part):
     print(json.dumps(back_lst, indent=4))
     return json.dumps(back_lst, indent=4)
 
+<<<<<<< Updated upstream
 def main():
     get_Json_searching_data('BBa_I11050')
+=======
+if __name__ == '__main__':
+    # app.run(host="10.222.211.44", port=5000)
+    app.run(host="127.0.0.1", port=5000)
+    # get_Json_searching_data('BBa_I11050')
+>>>>>>> Stashed changes
 
 main()
 
