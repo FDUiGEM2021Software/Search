@@ -60,11 +60,11 @@
 # #     # look inside `templates` and serve `index.html`
 # #     return render_template('index.html')
 
-# if __name__ == '__main__':
-#     app.run(host="0.0.0.0", port=5000)
+
 
 
 from flask import Flask, render_template, request, jsonify
+from flask_cors import cross_origin
 
 app = Flask(__name__)
 
@@ -76,10 +76,14 @@ def index():
 
 
 @app.route('/addnumber')
+@cross_origin()
 def add():
     a = request.args.get('a', 0, type=float)
     b = request.args.get('b', 0, type=float)
     return jsonify(result=a + b)
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
+if __name__ == '__main__':
+    # app.run(host="0.0.0.0", port=5000)
+    app.run(host="10.223.186.93", port=5000)

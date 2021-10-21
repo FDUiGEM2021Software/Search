@@ -28,7 +28,7 @@ def is_same_sequence(sequence1, sequence2):
         return 0
 
 
-def is_InRelation_seqience(sequence1, sequence2):
+def is_InRelation_sequence(sequence1, sequence2):
     if (sequence1.lower() in sequence2) or (sequence2 in sequence1.lower()):
         return 1
     reverse_sequence = sequence1.lower()
@@ -49,14 +49,14 @@ def take_search_result(inputs, ws):
         row = str(cell.row)
         if is_title(inputs, cell.value):
             search_dict['0'] = cell.value
-
         if is_same_sequence(inputs, ws['I'+row].value):
             search_dict['0'] = cell.value
-        if is_InRelation_seqience(inputs, ws['I'+row].value):
+        if is_InRelation_sequence(inputs, ws['I'+row].value):
             search_dict['2'].append(cell.value)
-        if is_in_description(inputs, ws['B'+row].value) or is_in_description(inputs, ws['E'+row].value):
+        if is_in_description(inputs, ws['B'+row].value):
             search_dict['1'].append(cell.value)
-    search_list.append(search_dict['0'])
+    if search_dict['0'] != []:
+        search_list.append(search_dict['0'])
     search_list.extend(search_dict['1'])
     search_list.extend(search_dict['2'])
     search_list.extend(search_dict['3'])
